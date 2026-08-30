@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex-API</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/icon/favicon.png">
+
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./css/colors.css">
+
+    <script src="./script.js" defer></script>
+    <script src="./js/template.js" defer></script>
+</head>
+
+<body onload="init()">
+
+    <header class="page-header">
+        <div class="page-wrapper page-header__content">
+
+            <div class="header-brand">
+                <img src="./assets/img/logo.png" alt="Pokédex Logo" class="header-logo">
+                <h1 class="page-title">Pokedex</h1>
+            </div>
+
+            <input type="text" id="searchInput" class="search-input" placeholder="Search Pokémon..."
+                oninput="searchPkm()">
+        </div>
+    </header>
+
+    <main class="page-body">
+        <div id="loadingSpinner" class="loader-overlay d-none">
+            <div class="pokeball"></div>
+            <p>Loading...</p>
+        </div>
+
+        <div class="page-wrapper page-body__content">
+
+            <div id="pokemonContainer" class="pokemon-container"></div>
+
+            <button id="loadMoreBtn" class="load-more-btn" onclick="loadMorePokemons()">
+                Load more Pokémon
+            </button>
+
+        </div>
+
+    </main>
+
+    <footer class="page-footer">
+        <div class="page-wrapper page-footer__content">
+            <p class="page-footer-copy">
+                &copy; 2026 AAM. Alle Rechte vorbehalten.
+            </p>
+        </div>
+    </footer>
+
+    <div id="pkmDialog" class="pkm-dialog d-none" onclick="closeBackdrop(event)">
+        <div class="pkm-dialog-content">
+
+            <div class="pkm-dialog-main">
+                <button class="nav-btn prevPkm" onclick="prevPokemon()">❮</button>
+                <div id="pkmDialogBody"></div>
+                <button class="nav-btn nextPkm" onclick="nextPokemon()">❯</button>
+            </div>
+
+            <footer class="pkm-dialog-footer">
+                <button class="close-btn" onclick="closePkmDialog()">Close</button>
+            </footer>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>
