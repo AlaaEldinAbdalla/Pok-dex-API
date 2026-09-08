@@ -122,8 +122,6 @@ function openPkmDialog(index) {
 
 function closePkmDialog() {
   const pkmDialogRef = document.getElementById("pkmDialog");
-
-  pkmDialogRef.classList.add("d-none");
   pkmDialogRef.className = "pkm-dialog d-none";
 
   document.body.classList.remove("no-scroll");

@@ -58,14 +58,17 @@
     <div id="pkmDialog" class="pkm-dialog d-none" onclick="closeBackdrop(event)">
         <div class="pkm-dialog-content">
 
+            <header class="pkm-dialog-header">
+                <button class="close-btn" onclick="closePkmDialog()">x</button>
+            </header>
+
             <div class="pkm-dialog-main">
-                <button class="nav-btn prevPkm" onclick="prevPokemon()">❮</button>
                 <div id="pkmDialogBody"></div>
-                <button class="nav-btn nextPkm" onclick="nextPokemon()">❯</button>
             </div>
 
             <footer class="pkm-dialog-footer">
-                <button class="close-btn" onclick="closePkmDialog()">Close</button>
+                <button class="nav-btn prevPkm" onclick="prevPokemon()">❮</button>
+                <button class="nav-btn nextPkm" onclick="nextPokemon()">❯</button>
             </footer>
 
         </div>

@@ -55,3 +55,13 @@
 * **JavaScript** – Funktionen und Interaktionen
 * **PokéAPI** – Quelle für die Pokémon-Daten
 * **Fetch API** – Abrufen der Daten von der PokéAPI
+
+## ## Änderungen
+
+## Dialog angepasst
+
+* Navigationspfeile angepasst und im Footer positioniert
+* Schließen-Button als X oben rechts angepasst
+* Größe der Pokémon-Karte auf 310 × 500 px festgelegt
+* Kartenstruktur mit Header, Main und Footer angepasst
+* Kartenverzerrung durch feste Größe und Flexbox-Struktur verhindert

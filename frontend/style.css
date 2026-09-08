@@ -284,7 +284,6 @@ body {
   color: var(--color-white);
   font-size: var(--font-base);
 }
-
 .pkm-dialog {
   position: fixed;
   top: 0;
@@ -307,7 +306,13 @@ body {
   filter: drop-shadow(0 6px 6px rgba(0, 0, 0, 0.3));
 }
 .pkm-dialog-content {
+  position: relative;
+
   width: 310px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+
   background: linear-gradient(145deg, #ff6b6b, #0f172a);
   color: white;
   border-radius: 10px;
@@ -316,6 +321,41 @@ body {
 
   animation: fadeIn 0.3s ease;
 }
+.pkm-dialog-header {
+  display: flex;
+  justify-content: flex-end;
+}
+.close-btn {
+  width: 35px;
+  height: 35px;
+  border: none;
+  background: transparent;
+  color: white;
+
+  font-size: 1rem;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+
+  border-radius: 50%;
+}
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+.pkm-dialog-main {
+  flex: 1;
+}
+
+
 .pkm-dialog-content img {
   width: 150px;
   margin: 10px 0;
@@ -414,57 +454,41 @@ body {
 
   text-transform: capitalize;
 }
-.close-options {
-  text-align: center;
-}
-.close-btn {
-  border: none;
-  background-color: #a5844d;
-  color: #0d3240;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1.15rem;
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
-  width: 100%;
-  padding: 10px;
-}
-.close-btn:hover {
-  background-color: #d4b37f;
-  color: #0d3240;
-}
 
+.pkm-dialog-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
 .nav-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  
   width: 35px;
   height: 35px;
+
   background: transparent;
-  color: #a6880f;
-  font-size: 1.8rem;
-  border: none;
+  color: white;
+
+  font-size: 1rem;
+  font-weight: bold;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
   cursor: pointer;
+  border: none;
+
   transition:
     background 0.25s ease,
     transform 0.2s ease;
-  z-index: 10;
+
   border-radius: 8px;
 }
-
 .nav-btn:hover {
   background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-50%) scale(1.1);
-}
-.prevPkm {
-  left: 20px;
-}
-.nextPkm {
-  right: 20px;
+  transform: scale(1.1);
+  
 }
 .no-scroll {
   overflow: hidden;
@@ -487,13 +511,4 @@ body {
   .header-brand {
     gap: 50px
   }
- .nav-btn {
-    top: 90%;
-  }
-  .prevPkm {
-    left: 55px;
-  }
-  .nextPkm {
-    right: 55px;
-  }
-}
+ }
