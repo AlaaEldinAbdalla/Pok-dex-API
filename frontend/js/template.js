@@ -1,22 +1,24 @@
 
 function createPokemonCard(pokemon, i) {
   return `
-    <div class="pokemon-card" onclick="openPkmDialog(${i})">
+    <li>
+      <button class="pokemon-card-button" onclick="openPkmDialog(${i})">
 
-      <h2 class="pokemon-title">
-        <span class="id">#${pokemon.id}</span>
-        ${pokemon.name.toUpperCase()}
-      </h2>
+        <h2 class="pokemon-title">
+          <span class="id">#${pokemon.id}</span>
+          ${pokemon.name.toUpperCase()}
+        </h2>
 
-      <div class="img-bg ${pokemon.types[0].type.name}">
-        <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}" class="pokemon-image">
-      </div>
+        <div class="img-bg ${pokemon.types[0].type.name}">
+          <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}" class="pokemon-image">
+        </div>
 
-      <div class="pokemon-types">
-        ${pokemon.types.map(type => `<span>${type.type.name}</span>`).join(" ")}
-      </div>
+        <div class="pokemon-types">
+          ${pokemon.types.map(type => `<span>${type.type.name}</span>`).join(" ")}
+        </div>
 
-    </div>
+      </button>
+    </li>
   `;
 }
 

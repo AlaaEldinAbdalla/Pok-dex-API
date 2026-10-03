@@ -57,8 +57,6 @@
 * **Fetch API** – Abrufen der Daten von der PokéAPI
 
 ## Durschgeführte Anpassunen
-[ ] Offen
-[x] Geschlossen
 
 1. Dialog:
 [x] Navigationspfeile im Footer positioniert und angepasst.
@@ -66,3 +64,11 @@
 [x] Pokémon-Karte auf eine feste Größe von 310 × 500 px gesetzt.
 [x] Kartenstruktur in Header, Main und Footer unterteilt.
 [x] Kartenverzerrung durch eine feste Größe und Flexbox-Struktur verhindert.
+
+2. Suchfeld um Validierung und Fehlermeldung erweitert:
+[x] Pokémon können über das Suchfeld nach ihrem Namen gesucht werden.
+[x] Die Suche wird ab **3 eingegebenen Zeichen** ausgeführt.
+[x] Bei weniger als 3 Zeichen wird eine Fehlermeldung direkt unter dem Suchfeld angezeigt.
+[x] Das Suchfeld kann über den **✕-Button** geleert werden.
+[x] Beim Leeren des Suchfelds werden wieder alle geladenen Pokémon angezeigt.
+[x] Die Suche kann per **Enter-Taste** oder über den **🔍-Button** gestartet werden.
