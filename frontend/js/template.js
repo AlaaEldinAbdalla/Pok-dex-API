@@ -28,12 +28,12 @@ function emptyMessage() {
   `;
 }
 
-function minSearchMessage() {
-  return `
-    <p class="empty-message">
-      Please enter at least 3 letters.
-    </p>
-  `;
+function searchErrorMessage() {
+    return `
+        <p class="search-error">
+            Please enter at least 3 characters to search.
+        </p>
+    `;
 }
 
 function createPokemonDialog(pokemon) {

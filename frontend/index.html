@@ -17,6 +17,7 @@
 <body onload="init()">
 
     <header class="page-header">
+
         <div class="page-wrapper page-header__content">
 
             <div class="header-brand">
@@ -24,9 +25,23 @@
                 <h1 class="page-title">Pokedex</h1>
             </div>
 
-            <input type="text" id="searchInput" class="search-input" placeholder="Search Pokémon..."
-                oninput="searchPkm()">
-        </div>
+            <div class="search-container">
+
+                <div class="search-controls">
+                    <input type="text" class="search-input" id="searchInput" placeholder="Suchen..."
+                        onkeydown="searchOnKeydown(event)" oninput="handleSearchInput()" onblur="validateSearch()">
+
+                    <button type="button" class="clear-search-btn d-none" id="clearSearchBtn" onclick="clearSearch()">
+                        ✕
+                    </button>
+
+                    <button type="button" onclick="searchPkm()">🔍</button>
+                </div>
+
+                <div id="searchError"></div>
+
+            </div>
+
     </header>
 
     <main class="page-body">

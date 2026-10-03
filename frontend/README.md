@@ -56,12 +56,13 @@
 * **PokéAPI** – Quelle für die Pokémon-Daten
 * **Fetch API** – Abrufen der Daten von der PokéAPI
 
-## ## Änderungen
+## Durschgeführte Anpassunen
+[ ] Offen
+[x] Geschlossen
 
-## Dialog angepasst
-
-* Navigationspfeile angepasst und im Footer positioniert
-* Schließen-Button als X oben rechts angepasst
-* Größe der Pokémon-Karte auf 310 × 500 px festgelegt
-* Kartenstruktur mit Header, Main und Footer angepasst
-* Kartenverzerrung durch feste Größe und Flexbox-Struktur verhindert
+1. Dialog:
+[x] Navigationspfeile im Footer positioniert und angepasst.
+[x] Schließen-Button als X oben rechts positioniert und angepasst. 
+[x] Pokémon-Karte auf eine feste Größe von 310 × 500 px gesetzt.
+[x] Kartenstruktur in Header, Main und Footer unterteilt.
+[x] Kartenverzerrung durch eine feste Größe und Flexbox-Struktur verhindert.

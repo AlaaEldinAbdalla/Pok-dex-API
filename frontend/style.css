@@ -84,11 +84,58 @@ body {
   color: var(--color-white);
   font-size: var(--font-xl);
 }
+
+.search-container {
+  display: flex;
+   flex-direction: column;
+  
+}
+.search-controls {
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
 .search-input {
-  padding: var(--space-sm) var(--space-md);
+  width: 300px;
+  height: 100%;
+  padding: 0 45px 0 15px;
+  border: 1px solid #ccc;
+  border-right: none;
+  border-radius: 20px 0 0 20px;
+  outline: none;
+}
+.search-input:focus {
+  border-color: #888;
+}
+.clear-search-btn {
+ display: none;
+  width: 35px;
+  height: 100%;
+  margin-left: -35px;
+  padding: 0;
   border: none;
-  border-radius: var(--radius);
-  font-size: var(--font-base);
+  background: transparent;
+  cursor: pointer;
+  z-index: 1;
+}
+.clear-search-btn:not(.d-none) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.clear-search-btn:hover {
+  color: #555;
+}
+.search-container button:last-of-type {
+  width: 55px;
+  height: 100%;
+  border: 1px solid #ccc;
+  border-radius: 0 20px 20px 0;
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
+.search-container button:last-of-type:hover {
+  background-color: #e5e5e5;
 }
 .empty-message {
   display: flex;
@@ -101,6 +148,15 @@ body {
   font-weight: bold;
   color: white;
   text-align: center;
+}
+.search-error {
+  margin: 6px 0 0;
+  padding-left: 4px;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 .page-body {
@@ -363,7 +419,7 @@ body {
 .tabs {
   display: flex;
   justify-content: space-around;
-  margin-top: 10px;
+  margin: 10px;
 }
 .tabs button {
   flex: 1;
@@ -389,13 +445,13 @@ body {
   margin-bottom: 10px;
 }
 .bar {
-  background: #95910f;
+  background: #e69304;
   height: 10px;
   border-radius: 5px;
   overflow: hidden;
 }
 .fill {
-  background: rgb(41, 166, 41);
+  background: #ac332f;
   height: 100%;
 }
 .main-tab {
@@ -512,3 +568,4 @@ body {
     gap: 50px
   }
  }
+
