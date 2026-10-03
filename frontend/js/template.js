@@ -1,4 +1,3 @@
-
 function createPokemonCard(pokemon, i) {
   return `
     <li>
@@ -14,7 +13,7 @@ function createPokemonCard(pokemon, i) {
         </div>
 
         <div class="pokemon-types">
-          ${pokemon.types.map(type => `<span>${type.type.name}</span>`).join(" ")}
+          ${pokemon.types.map((type) => `<span>${type.type.name}</span>`).join(" ")}
         </div>
 
       </button>
@@ -31,7 +30,7 @@ function emptyMessage() {
 }
 
 function searchErrorMessage() {
-    return `
+  return `
         <p class="search-error">
             Please enter at least 3 characters to search.
         </p>
@@ -53,10 +52,24 @@ function createPokemonDialog(pokemon) {
     </div>
 
     <div class="tabs">
+<button
+    onclick="showTab('main', this)"
+    class="active"
+    aria-label="Hauptinformationen anzeigen">
+    Main
+</button>
 
-      <button onclick="showTab('main', this)" class="active">Main</button>
-      <button onclick="showTab('stats', this)">Stats</button>
-      <button onclick="showTab('abilities', this)">Abilities</button>
+<button
+    onclick="showTab('stats', this)"
+    aria-label="Statistiken anzeigen">
+    Stats
+</button>
+
+<button
+    onclick="showTab('abilities', this)"
+    aria-label="Fähigkeiten anzeigen">
+    Abilities
+</button>
 
     </div>
 
@@ -111,7 +124,7 @@ function createStatsTab(pokemon) {
           <div class="fill" style="width:${stat.base_stat}%"></div>
         </div>
       </div>
-    `
+    `,
     )
     .join("");
 }
