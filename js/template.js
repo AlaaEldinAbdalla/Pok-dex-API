@@ -1,7 +1,11 @@
+
 function createPokemonCard(pokemon, i) {
   return `
     <li>
-      <button class="pokemon-card-button" onclick="openPkmDialog(${i})">
+      <button
+        class="pokemon-card-button"
+        data-id="card"
+        onclick="openPkmDialog(${i})">
 
         <h2 class="pokemon-title">
           <span class="id">#${pokemon.id}</span>
@@ -9,7 +13,11 @@ function createPokemonCard(pokemon, i) {
         </h2>
 
         <div class="img-bg ${pokemon.types[0].type.name}">
-          <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}" class="pokemon-image">
+          <img
+            src="${pokemon.sprites.front_default}"
+            alt="${pokemon.name}"
+            class="pokemon-image"
+            data-id="card-image">
         </div>
 
         <div class="pokemon-types">
@@ -21,17 +29,20 @@ function createPokemonCard(pokemon, i) {
   `;
 }
 
+
+
 function emptyMessage() {
   return `
-    <p class="empty-message">
-      No matching Pokémon found.
+    <p class="empty-message" data-id="not-found">
+      No match found.
     </p>
   `;
 }
 
+
 function searchErrorMessage() {
   return `
-        <p class="search-error">
+        <p class="search-error" data-id="search-error">
             Please enter at least 3 characters to search.
         </p>
     `;
@@ -44,12 +55,15 @@ function createPokemonDialog(pokemon) {
       <span class="id">#${pokemon.id}</span> ${pokemon.name}
     </h1>
 
-    <div class="img-bg ${pokemon.types[0].type.name}">
-      <img
-        src="${pokemon.sprites.other["official-artwork"].front_default}"
-        alt="${pokemon.name}"
-        class="pokemon-image">
-    </div>
+
+<div class="img-bg ${pokemon.types[0].type.name}">
+  <img
+    src="${pokemon.sprites.other["official-artwork"].front_default}"
+    alt="${pokemon.name}"
+    class="pokemon-image"
+    data-id="dialog-image">
+</div>
+
 
     <div class="tabs">
 <button

@@ -345,20 +345,25 @@ body {
   font-size: var(--font-base);
 }
 .pkm-dialog {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    border: none;
+    background: transparent;
+    justify-content: center;
+    align-items: center;
+}
+.pkm-dialog.is-open {
+    display: flex;
+}
+.pkm-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.6);
+}
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.d-none {
-  display: none;
-}
 .pokemon-image {
   width: 110px;
   height: 110px;

@@ -28,15 +28,14 @@
             <div class="search-container">
 
                 <div class="search-controls">
-                    <input type="text" class="search-input" id="searchInput" placeholder="Suchen..."
-                        onkeydown="searchOnKeydown(event)" oninput="handleSearchInput()" onblur="validateSearch()">
 
-                    <button type="button" class="clear-search-btn d-none" id="clearSearchBtn" onclick="clearSearch()"
-                        aria-label="Suche löschen">
-                        ✕
-                    </button>
+                    <input type="text" class="search-input" id="searchInput" data-id="search-input"
+                        placeholder="Suchen..." onkeydown="searchOnKeydown(event)" oninput="handleSearchInput()"
+                        onblur="validateSearch()">
 
-                    <button type="button" onclick="searchPkm()" aria-label="Pokémon suchen">
+
+
+                    <button type="button" data-id="search-button" onclick="searchPkm()" aria-label="Pokémon suchen">
                         🔍
                     </button>
                 </div>
@@ -47,7 +46,7 @@
 
     </header>
 
-    <main class="page-body">
+    <main class="page-body" data-id="content">
 
         <div id="loadingSpinner" class="loader-overlay d-none">
             <div class="pokeball"></div>
@@ -58,7 +57,7 @@
 
             <ul id="pokemonContainer" class="pokemon-container"></ul>
 
-            <button id="loadMoreBtn" class="load-more-btn" onclick="loadMorePokemons()">
+            <button id="loadMoreBtn" class="load-more-btn"  data-id="load-more-button" onclick="loadMorePokemons()">
                 Load more Pokémon
             </button>
 
@@ -74,30 +73,35 @@
         </div>
     </footer>
 
-    <div aria-label="Pokémon Details" role="dialog" id="pkmDialog" class="pkm-dialog d-none" onclick="closeBackdrop(event)">
-        <div class="pkm-dialog-content">
+    <dialog id="pkmDialog" class="pkm-dialog" aria-label="Pokémon Details"  data-id="dialog"
+        onclick="closeBackdrop(event)">
+        <div class="pkm-dialog-content"  data-id="overlay-pokemon-name">
 
             <header class="pkm-dialog-header">
-                <button class="close-btn" onclick="closePkmDialog()" aria-label="Dialog schließen">
+                <button type="button" class="close-btn" data-id="close-dialog-button" onclick="closePkmDialog()"
+                    aria-label="Dialog schließen">
                     x
                 </button>
             </header>
 
             <div class="pkm-dialog-main">
-                <div id="pkmDialogBody"></div>
+                <div id="pkmDialogBody" data-id="dialog-pokemon-content"></div>
             </div>
 
             <footer class="pkm-dialog-footer">
-                <button class="nav-btn prevPkm" onclick="prevPokemon()" aria-label="Vorheriges Pokémon">
+                <button type="button" class="nav-btn prevPkm" data-id="prev-button" onclick="prevPokemon()"
+                    aria-label="Vorheriges Pokémon">
                     ❮
                 </button>
-                <button class="nav-btn nextPkm" onclick="nextPokemon()" aria-label="Nächstes Pokémon">
+
+                <button type="button" class="nav-btn nextPkm" data-id="next-button" onclick="nextPokemon()"
+                    aria-label="Nächstes Pokémon">
                     ❯
                 </button>
             </footer>
 
         </div>
-    </div>
+    </dialog>
 
 
 </body>

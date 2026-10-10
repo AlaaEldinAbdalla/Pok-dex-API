@@ -76,31 +76,27 @@ function hideSpinner() {
 }
 
 function openPkmDialog(index) {
-  currentPokemonIndex = index;
+    currentPokemonIndex = index;
 
-  const pokemon = currentAllPokemons[index];
+    const pokemon = currentAllPokemons[index];
+    const pkmDialogRef = document.getElementById("pkmDialog");
+    const pkmBodyRef = document.getElementById("pkmDialogBody");
 
-  const pkmDialogRef = document.getElementById("pkmDialog");
-  const pkmBodyRef = document.getElementById("pkmDialogBody");
+    pkmBodyRef.innerHTML = createPokemonDialog(pokemon);
 
-  pkmBodyRef.innerHTML = createPokemonDialog(pokemon);
+    pkmDialogRef.showModal();
+    pkmDialogRef.classList.add("is-open");
 
-  pkmDialogRef.classList.remove("d-none");
-
-  document.body.classList.add("no-scroll");
+    document.body.classList.add("no-scroll");
 }
 
 function closePkmDialog() {
-  const pkmDialogRef = document.getElementById("pkmDialog");
-  pkmDialogRef.className = "pkm-dialog d-none";
+    const pkmDialogRef = document.getElementById("pkmDialog");
 
-  document.body.classList.remove("no-scroll");
-}
+    pkmDialogRef.classList.remove("is-open");
+    pkmDialogRef.close();
 
-function closeBackdrop(event) {
-  if (event.target.id === "pkmDialog") {
-    closePkmDialog();
-  }
+    document.body.classList.remove("no-scroll");
 }
 
 function showTab(tabName, btn) {

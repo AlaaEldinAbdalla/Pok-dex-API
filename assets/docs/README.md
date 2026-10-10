@@ -72,3 +72,10 @@
 [x] Das Suchfeld kann über den **✕-Button** geleert werden.
 [x] Beim Leeren des Suchfelds werden wieder alle geladenen Pokémon angezeigt.
 [x] Die Suche kann per **Enter-Taste** oder über den **🔍-Button** gestartet werden.
+
+3. Accessibility & Barrierefreiheit:
+[x] Listenansicht: Semantische HTML-Elemente (<ul> und <li>) verwendet.
+[x] Pokémon-Karten: Als echte <button>-Elemente umgesetzt.
+[x] ARIA-Labels: Alle Buttons und Dialoge verfügen über passende ARIA-Labels.
+[x]
+[x]
