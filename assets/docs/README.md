@@ -87,3 +87,7 @@
 [x] Höchstens 14 Zeilen pro Funktion.
 [x] Frontend-Ordner entfernt.
 
+6. Verbesserung der Suchfunktion
+
+[x] Den **Load More Button** während einer aktiven Suche ausblenden.
+[x] Den Button wieder anzeigen, sobald das Suchfeld geleert wird.

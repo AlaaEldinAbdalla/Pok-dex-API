@@ -6,46 +6,35 @@ let currentAllPokemons = [];
 
 async function init() {
   showSpinner();
-
   allPokemons = await loadPokemons(offset);
   currentAllPokemons = [...allPokemons];
-
   renderAllPokemons();
- updateLoadMoreButton();
+  updateLoadMoreButton();
   hideSpinner();
 }
 
 async function loadPokemons(offset) {
   const pokemonUrl = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
-
   const pokemonResponse = await fetch(pokemonUrl);
   const data = await pokemonResponse.json();
-
   const pokemonDetails = await Promise.all(
     data.results.map(async (pokemon) => {
       const res = await fetch(pokemon.url);
       return await res.json();
     }),
   );
-
   return pokemonDetails;
 }
 
 async function loadMorePokemons() {
   const loadMoreBtn = document.getElementById("loadMoreBtn");
-
   loadMoreBtn.disabled = true;
   showSpinner();
-
   offset += limit;
-
   const newPokemons = await loadPokemons(offset);
-
   allPokemons.push(...newPokemons);
   currentAllPokemons = [...allPokemons];
-
   renderNewPokemons(newPokemons);
-
   hideSpinner();
   loadMoreBtn.disabled = false;
 }
@@ -53,14 +42,12 @@ async function loadMorePokemons() {
 function updateLoadMoreButton() {
   const searchInput = document.getElementById("searchInput").value.trim();
   const loadMoreBtn = document.getElementById("loadMoreBtn");
-
   if (searchInput.length > 0) {
     loadMoreBtn.classList.add("d-none");
   } else {
     loadMoreBtn.classList.remove("d-none");
   }
 }
-
 
 function renderAllPokemons() {
   const pokemonContainerRef = document.getElementById("pokemonContainer");
@@ -89,16 +76,12 @@ function hideSpinner() {
 
 function openPkmDialog(index) {
     currentPokemonIndex = index;
-
     const pokemon = currentAllPokemons[index];
     const pkmDialogRef = document.getElementById("pkmDialog");
     const pkmBodyRef = document.getElementById("pkmDialogBody");
-
     pkmBodyRef.innerHTML = createPokemonDialog(pokemon);
-
     pkmDialogRef.showModal();
     pkmDialogRef.classList.add("is-open");
-
     document.body.classList.add("no-scroll");
 }
 
@@ -111,25 +94,26 @@ function closePkmDialog() {
     document.body.classList.remove("no-scroll");
 }
 
+function closeBackdrop(event) {
+  if (event.target.id === "pkmDialog") {
+    closePkmDialog();
+  }
+}
+
 function showTab(tabName, btn) {
   document.querySelectorAll(".tab-content").forEach((el) => {
     el.classList.remove("active");
   });
-
   document.getElementById(`tab-${tabName}`).classList.add("active");
-
   document.querySelectorAll(".tabs button").forEach((b) => {
     b.classList.remove("active");
   });
-
   btn.classList.add("active");
 }
 
 function renderNewPokemons(pokemons) {
   const pokemonContainerRef = document.getElementById("pokemonContainer");
-
   const startIndex = currentAllPokemons.length - pokemons.length;
-
   for (let i = 0; i < pokemons.length; i++) {
     pokemonContainerRef.innerHTML += createPokemonCard(
       pokemons[i],
@@ -140,11 +124,9 @@ function renderNewPokemons(pokemons) {
 
 function nextPokemon() {
   currentPokemonIndex++;
-
   if (currentPokemonIndex >= currentAllPokemons.length) {
     currentPokemonIndex = 0;
   }
-
   const pokemon = currentAllPokemons[currentPokemonIndex];
   document.getElementById("pkmDialogBody").innerHTML =
     createPokemonDialog(pokemon);
@@ -152,24 +134,17 @@ function nextPokemon() {
 
 function prevPokemon() {
   currentPokemonIndex--;
-
   if (currentPokemonIndex < 0) {
     currentPokemonIndex = currentAllPokemons.length - 1;
   }
-
   const pokemon = currentAllPokemons[currentPokemonIndex];
   document.getElementById("pkmDialogBody").innerHTML =
-    createPokemonDialog(pokemon);
+  createPokemonDialog(pokemon);
 }
 
 function searchPkm() {
-  const searchInput = document
-    .getElementById("searchInput")
-    .value.trim()
-    .toLowerCase();
-
+  const searchInput = document.getElementById("searchInput") .value.trim().toLowerCase();
   updateLoadMoreButton();
-
   if (searchInput.length === 0) {
     document.getElementById("searchError").innerHTML = "";
     currentAllPokemons = [...allPokemons];
@@ -193,40 +168,28 @@ function searchPkm() {
 }
 
 function validateSearch() {
-  const searchInput = document
-    .getElementById("searchInput")
-    .value
-    .trim();
-
+  const searchInput = document.getElementById("searchInput").value.trim();
   const clearSearchBtn = document.getElementById("clearSearchBtn");
   const searchError = document.getElementById("searchError");
-
-  if (searchInput.length === 0) {
-    clearSearchBtn.classList.add("d-none");
+  if (searchInput.length === 0) {clearSearchBtn.classList.add("d-none");
     searchError.innerHTML = "";
     return;
   }
-
   clearSearchBtn.classList.remove("d-none");
-
   if (searchInput.length < 3) {
     searchError.innerHTML = searchErrorMessage();
     return;
   }
-
   searchError.innerHTML = "";
 }
-
 
 function clearSearch() {
   document.getElementById("searchInput").value = "";
   validateSearch();
   updateLoadMoreButton();
-
   currentAllPokemons = [...allPokemons];
   renderAllPokemons();
 }
-
 
 function searchOnKeydown(event) {
   if (event.key === "Enter") {
@@ -234,23 +197,16 @@ function searchOnKeydown(event) {
   }
 }
 
-
 function handleSearchInput() {
-  const searchInput = document
-    .getElementById("searchInput")
-    .value.trim();
-
+  const searchInput = document.getElementById("searchInput").value.trim();
   const clearSearchBtn = document.getElementById("clearSearchBtn");
-
   updateLoadMoreButton();
-
   if (searchInput.length === 0) {
     clearSearchBtn.classList.add("d-none");
     currentAllPokemons = [...allPokemons];
     renderAllPokemons();
     return;
   }
-
   clearSearchBtn.classList.remove("d-none");
 }
 
