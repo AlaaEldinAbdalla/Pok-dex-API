@@ -559,22 +559,54 @@ body {
   overflow: hidden;
 }
 
-
 @media (max-width: 770px) {
-
   .page-header {
     padding: 15px;
   }
+
+  .page-header__content {
+    gap: 12px;
+  }
+
+  .search-container {
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
+  .search-input {
+    width: 220px;
+    min-width: 0;
+  }
 }
 
-@media (max-width:435px) {
-.page-header__content {
+@media (max-width: 515px) {
+  .page-header__content {
     flex-direction: column;
+    align-items: stretch;
     gap: 12px;
   }
 
   .header-brand {
-    gap: 50px
+    width: 100%;
+    justify-content: flex-start;
+    gap: 10px;
   }
- }
+
+  .search-container {
+    width: 100%;
+    max-width: none;
+  }
+
+  .search-controls {
+    width: 100%;
+  }
+
+  .search-input {
+    width: 100%;
+    min-width: 0;
+    flex: 1;
+  }
+}
+
+
 

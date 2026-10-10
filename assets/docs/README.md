@@ -50,11 +50,11 @@
 - Dadurch werden beispielsweise die Suchleiste und die Navigation auf kleinen Bildschirmen anders angeordnet.
 
 ## Verwendete Technik
-* **HTML** – Aufbau der Webseite
-* **CSS** – Gestaltung und responsive Darstellung
-* **JavaScript** – Funktionen und Interaktionen
-* **PokéAPI** – Quelle für die Pokémon-Daten
-* **Fetch API** – Abrufen der Daten von der PokéAPI
+- **HTML** : Aufbau der Webseite
+- **CSS** : Gestaltung und responsive Darstellung
+- **JavaScript** : Funktionen und Interaktionen
+- **PokéAPI** : Quelle für die Pokémon-Daten
+- **Fetch API** : Abrufen der Daten von der PokéAPI
 
 ## Durschgeführte Anpassunen
 
@@ -77,5 +77,10 @@
 [x] Listenansicht: Semantische HTML-Elemente (<ul> und <li>) verwendet.
 [x] Pokémon-Karten: Als echte <button>-Elemente umgesetzt.
 [x] ARIA-Labels: Alle Buttons und Dialoge verfügen über passende ARIA-Labels.
-[x]
-[x]
+
+4. Data-id Attribute
+[x] Fehlende data-id-Attribute zu den Pokémon-Karten und Dialogelementen hinzugefügt.
+[x]Suchfeld, Suchbutton und Meldung bei fehlenden Suchergebnissen mit den erforderlichen data-id-Attributen versehen.
+[x] Attribute für das Pokémon-Bild im Dialog sowie für die Vor- und Zurück-Buttons ergänzt.
+
+
