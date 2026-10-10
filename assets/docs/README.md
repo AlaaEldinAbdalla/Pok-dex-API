@@ -80,7 +80,10 @@
 
 4. Data-id Attribute
 [x] Fehlende data-id-Attribute zu den Pokémon-Karten und Dialogelementen hinzugefügt.
-[x]Suchfeld, Suchbutton und Meldung bei fehlenden Suchergebnissen mit den erforderlichen data-id-Attributen versehen.
+[x] Suchfeld, Suchbutton und Meldung bei fehlenden Suchergebnissen mit den erforderlichen data-id-Attributen versehen.
 [x] Attribute für das Pokémon-Bild im Dialog sowie für die Vor- und Zurück-Buttons ergänzt.
 
+5. Code
+[x] Höchstens 14 Zeilen pro Funktion.
+[x] Frontend-Ordner entfernt.
 

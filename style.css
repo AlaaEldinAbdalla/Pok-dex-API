@@ -181,7 +181,7 @@ body {
   z-index: var(--z-loader);
 }
 .d-none {
-  display: none;
+  display: none !important;
 }
 .loader-overlay p {
   margin-top: var(--space-md);

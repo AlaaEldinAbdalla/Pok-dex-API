@@ -33,8 +33,10 @@
                         placeholder="Suchen..." onkeydown="searchOnKeydown(event)" oninput="handleSearchInput()"
                         onblur="validateSearch()">
 
-
-
+                    <button type="button" class="clear-search-btn d-none" id="clearSearchBtn" onclick="clearSearch()"
+                        aria-label="Suche löschen">
+                        ✕
+                    </button>
                     <button type="button" data-id="search-button" onclick="searchPkm()" aria-label="Pokémon suchen">
                         🔍
                     </button>
@@ -43,7 +45,7 @@
                 <div id="searchError"></div>
 
             </div>
-        </div>    
+        </div>
 
     </header>
 
@@ -58,7 +60,7 @@
 
             <ul id="pokemonContainer" class="pokemon-container"></ul>
 
-            <button id="loadMoreBtn" class="load-more-btn"  data-id="load-more-button" onclick="loadMorePokemons()">
+            <button id="loadMoreBtn" class="load-more-btn" data-id="load-more-button" onclick="loadMorePokemons()">
                 Load more Pokémon
             </button>
 
@@ -74,9 +76,9 @@
         </div>
     </footer>
 
-    <dialog id="pkmDialog" class="pkm-dialog" aria-label="Pokémon Details"  data-id="dialog"
+    <dialog id="pkmDialog" class="pkm-dialog" aria-label="Pokémon Details" data-id="dialog"
         onclick="closeBackdrop(event)">
-        <div class="pkm-dialog-content"  data-id="overlay-pokemon-name">
+        <div class="pkm-dialog-content" data-id="overlay-pokemon-name">
 
             <header class="pkm-dialog-header">
                 <button type="button" class="close-btn" data-id="close-dialog-button" onclick="closePkmDialog()"

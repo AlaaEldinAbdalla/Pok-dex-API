@@ -11,7 +11,7 @@ async function init() {
   currentAllPokemons = [...allPokemons];
 
   renderAllPokemons();
-
+ updateLoadMoreButton();
   hideSpinner();
 }
 
@@ -49,6 +49,18 @@ async function loadMorePokemons() {
   hideSpinner();
   loadMoreBtn.disabled = false;
 }
+
+function updateLoadMoreButton() {
+  const searchInput = document.getElementById("searchInput").value.trim();
+  const loadMoreBtn = document.getElementById("loadMoreBtn");
+
+  if (searchInput.length > 0) {
+    loadMoreBtn.classList.add("d-none");
+  } else {
+    loadMoreBtn.classList.remove("d-none");
+  }
+}
+
 
 function renderAllPokemons() {
   const pokemonContainerRef = document.getElementById("pokemonContainer");
@@ -149,20 +161,25 @@ function prevPokemon() {
   document.getElementById("pkmDialogBody").innerHTML =
     createPokemonDialog(pokemon);
 }
+
 function searchPkm() {
   const searchInput = document
     .getElementById("searchInput")
     .value.trim()
     .toLowerCase();
 
+  updateLoadMoreButton();
+
   if (searchInput.length === 0) {
+    document.getElementById("searchError").innerHTML = "";
     currentAllPokemons = [...allPokemons];
     renderAllPokemons();
     return;
   }
 
   if (searchInput.length < 3) {
-    document.getElementById("searchError").innerHTML = searchErrorMessage();
+    document.getElementById("searchError").innerHTML =
+      searchErrorMessage();
     return;
   }
 
@@ -174,6 +191,7 @@ function searchPkm() {
 
   renderAllPokemons();
 }
+
 function validateSearch() {
   const searchInput = document
     .getElementById("searchInput")
@@ -198,25 +216,41 @@ function validateSearch() {
 
   searchError.innerHTML = "";
 }
+
+
 function clearSearch() {
   document.getElementById("searchInput").value = "";
   validateSearch();
+  updateLoadMoreButton();
+
+  currentAllPokemons = [...allPokemons];
+  renderAllPokemons();
 }
+
+
 function searchOnKeydown(event) {
   if (event.key === "Enter") {
     searchPkm();
   }
 }
+
+
 function handleSearchInput() {
-  const searchInput = document.getElementById("searchInput").value.trim();
+  const searchInput = document
+    .getElementById("searchInput")
+    .value.trim();
+
   const clearSearchBtn = document.getElementById("clearSearchBtn");
+
+  updateLoadMoreButton();
 
   if (searchInput.length === 0) {
     clearSearchBtn.classList.add("d-none");
-      currentAllPokemons = [...allPokemons];
+    currentAllPokemons = [...allPokemons];
     renderAllPokemons();
     return;
   }
 
   clearSearchBtn.classList.remove("d-none");
 }
+
