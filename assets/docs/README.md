@@ -98,3 +98,6 @@
 7. CSS: Fix-Pokémon-Bilder ohne Verzerrung 
 [x] Detailansicht auf 110 × 110 px festgelegt
 [x] Einheitliche Bilddarstellung in Übersicht 
+
+8. CSS: Suchfehlermeldung Dom-Verschiebung
+[x] Platz für die Suchfehlermeldung reserviert
