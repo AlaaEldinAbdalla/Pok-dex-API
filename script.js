@@ -75,29 +75,36 @@ function hideSpinner() {
 }
 
 function openPkmDialog(index) {
-    currentPokemonIndex = index;
-    const pokemon = currentAllPokemons[index];
-    const pkmDialogRef = document.getElementById("pkmDialog");
-    const pkmBodyRef = document.getElementById("pkmDialogBody");
-    pkmBodyRef.innerHTML = createPokemonDialog(pokemon);
-    pkmDialogRef.showModal();
-    pkmDialogRef.classList.add("is-open");
-    document.body.classList.add("no-scroll");
+  currentPokemonIndex = index;
+  const pokemon = currentAllPokemons[index];
+  const pkmDialogRef = document.getElementById("pkmDialog");
+  const pkmBodyRef = document.getElementById("pkmDialogBody");
+  pkmBodyRef.innerHTML = createPokemonDialog(pokemon);
+  pkmDialogRef.showModal();
+  pkmDialogRef.classList.add("is-open");
+  document.body.classList.add("no-scroll");
 }
 
 function closePkmDialog() {
-    const pkmDialogRef = document.getElementById("pkmDialog");
+  const pkmDialogRef = document.getElementById("pkmDialog");
 
-    pkmDialogRef.classList.remove("is-open");
+  if (pkmDialogRef.open) {
     pkmDialogRef.close();
 
+    pkmDialogRef.classList.remove("is-open");
     document.body.classList.remove("no-scroll");
+  }
 }
 
 function closeBackdrop(event) {
   if (event.target.id === "pkmDialog") {
     closePkmDialog();
   }
+}
+
+function closeDialogOnEscape(event) {
+  event.preventDefault();
+  closePkmDialog();
 }
 
 function showTab(tabName, btn) {
@@ -139,11 +146,14 @@ function prevPokemon() {
   }
   const pokemon = currentAllPokemons[currentPokemonIndex];
   document.getElementById("pkmDialogBody").innerHTML =
-  createPokemonDialog(pokemon);
+    createPokemonDialog(pokemon);
 }
 
 function searchPkm() {
-  const searchInput = document.getElementById("searchInput") .value.trim().toLowerCase();
+  const searchInput = document
+    .getElementById("searchInput")
+    .value.trim()
+    .toLowerCase();
   updateLoadMoreButton();
   if (searchInput.length === 0) {
     document.getElementById("searchError").innerHTML = "";
@@ -153,8 +163,7 @@ function searchPkm() {
   }
 
   if (searchInput.length < 3) {
-    document.getElementById("searchError").innerHTML =
-      searchErrorMessage();
+    document.getElementById("searchError").innerHTML = searchErrorMessage();
     return;
   }
 
@@ -171,7 +180,8 @@ function validateSearch() {
   const searchInput = document.getElementById("searchInput").value.trim();
   const clearSearchBtn = document.getElementById("clearSearchBtn");
   const searchError = document.getElementById("searchError");
-  if (searchInput.length === 0) {clearSearchBtn.classList.add("d-none");
+  if (searchInput.length === 0) {
+    clearSearchBtn.classList.add("d-none");
     searchError.innerHTML = "";
     return;
   }
@@ -209,4 +219,3 @@ function handleSearchInput() {
   }
   clearSearchBtn.classList.remove("d-none");
 }
-

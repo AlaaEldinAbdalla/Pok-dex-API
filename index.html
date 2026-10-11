@@ -17,14 +17,11 @@
 <body onload="init()">
 
     <header class="page-header">
-
         <div class="page-wrapper page-header__content">
-
             <div class="header-brand">
                 <img src="./assets/images/logo.png" alt="Pokédex Logo" class="header-logo">
                 <h1 class="page-title">Pokedex</h1>
             </div>
-
             <div class="search-container">
 
                 <div class="search-controls">
@@ -46,26 +43,19 @@
 
             </div>
         </div>
-
     </header>
 
     <main class="page-body" data-id="content">
-
         <div id="loadingSpinner" class="loader-overlay d-none">
             <div class="pokeball"></div>
             <p>Loading...</p>
         </div>
-
         <div class="page-wrapper page-body__content">
-
             <ul id="pokemonContainer" class="pokemon-container"></ul>
-
             <button id="loadMoreBtn" class="load-more-btn" data-id="load-more-button" onclick="loadMorePokemons()">
                 Load more Pokémon
             </button>
-
         </div>
-
     </main>
 
     <footer class="page-footer">
@@ -76,35 +66,29 @@
         </div>
     </footer>
 
-    <dialog id="pkmDialog" class="pkm-dialog" aria-label="Pokémon Details" data-id="dialog" onclick="closeBackdrop(event)">
+    <dialog id="pkmDialog" class="pkm-dialog" aria-label="Pokémon Details" data-id="dialog" onclick="closeBackdrop(event)" oncancel="closeDialogOnEscape(event)">
         <div class="pkm-dialog-content" data-id="overlay-pokemon-name">
-
             <header class="pkm-dialog-header">
                 <button type="button" class="close-btn" data-id="close-dialog-button" onclick="closePkmDialog()"
                     aria-label="Dialog schließen">
                     x
                 </button>
             </header>
-
             <div class="pkm-dialog-main">
                 <div id="pkmDialogBody" data-id="dialog-pokemon-content"></div>
             </div>
-
             <footer class="pkm-dialog-footer">
                 <button type="button" class="nav-btn prevPkm" data-id="prev-button" onclick="prevPokemon()"
                     aria-label="Vorheriges Pokémon">
                     ❮
                 </button>
-
                 <button type="button" class="nav-btn nextPkm" data-id="next-button" onclick="nextPokemon()"
                     aria-label="Nächstes Pokémon">
                     ❯
                 </button>
             </footer>
-
         </div>
     </dialog>
-
 
 </body>
 
