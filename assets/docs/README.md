@@ -95,4 +95,6 @@
 6. Fix Escape-Taste
 [x] Beim Drücken der Escape-Taste wird der Dialog über closeDialogOnEscape() geschlossen.
 
-
+7. CSS: Fix-Pokémon-Bilder ohne Verzerrung 
+[x] Detailansicht auf 110 × 110 px festgelegt
+[x] Einheitliche Bilddarstellung in Übersicht 

@@ -149,6 +149,12 @@ body {
   color: white;
   text-align: center;
 }
+.search-container {
+  position: relative;
+}
+#searchError {
+  min-height: 24px;
+}
 .search-error {
   margin: 6px 0 0;
   padding-left: 4px;
