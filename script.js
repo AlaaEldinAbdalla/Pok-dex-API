@@ -149,7 +149,6 @@ function prevPokemon() {
     createPokemonDialog(pokemon);
 }
 
-
 function searchPkm() {
   const input = document.getElementById("searchInput").value.trim().toLowerCase();
   const error = document.getElementById("searchError");
@@ -159,36 +158,6 @@ function searchPkm() {
   else { error.innerHTML = ""; currentAllPokemons = allPokemons.filter(p => p.name.toLowerCase().includes(input)); }
   renderAllPokemons();
 }
-
-
-
-
-// function searchPkm() {
-//   const searchInput = document
-//     .getElementById("searchInput")
-//     .value.trim()
-//     .toLowerCase();
-//   updateLoadMoreButton();
-//   if (searchInput.length === 0) {
-//     document.getElementById("searchError").innerHTML = "";
-//     currentAllPokemons = [...allPokemons];
-//     renderAllPokemons();
-//     return;
-//   }
-
-//   if (searchInput.length < 3) {
-//     document.getElementById("searchError").innerHTML = searchErrorMessage();
-//     return;
-//   }
-
-//   document.getElementById("searchError").innerHTML = "";
-
-//   currentAllPokemons = allPokemons.filter((pkm) =>
-//     pkm.name.toLowerCase().includes(searchInput),
-//   );
-
-//   renderAllPokemons();
-// }
 
 function validateSearch() {
   const searchInput = document.getElementById("searchInput").value.trim();

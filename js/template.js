@@ -29,8 +29,6 @@ function createPokemonCard(pokemon, i) {
   `;
 }
 
-
-
 function emptyMessage() {
   return `
     <p class="empty-message" data-id="not-found">
@@ -38,7 +36,6 @@ function emptyMessage() {
     </p>
   `;
 }
-
 
 function searchErrorMessage() {
   return `
@@ -127,20 +124,37 @@ function createMainTab(pokemon) {
   `;
 }
 
+// function createStatsTab(pokemon) {
+//   return pokemon.stats
+//     .filter((stat) => ["attack", "defense", "speed"].includes(stat.stat.name))
+//     .map(
+//       (stat) => `
+//       <div class="stat">
+//         <span>${stat.stat.name}</span>
+//         <div class="bar">
+//           <div class="fill" style="width:${stat.base_stat}%"></div>
+//         </div>
+//       </div>
+//     `,
+//     )
+//     .join("");
+// }
+
 function createStatsTab(pokemon) {
-  return pokemon.stats
-    .filter((stat) => ["attack", "defense", "speed"].includes(stat.stat.name))
-    .map(
-      (stat) => `
-      <div class="stat">
-        <span>${stat.stat.name}</span>
-        <div class="bar">
-          <div class="fill" style="width:${stat.base_stat}%"></div>
-        </div>
-      </div>
-    `,
-    )
-    .join("");
+  return `
+    <div class="stats-tab">
+      ${pokemon.stats
+        .filter(stat => ["attack", "defense", "speed"].includes(stat.stat.name))
+        .map(stat => `
+          <div class="stat">
+            <span>${stat.stat.name}</span>
+            <div class="bar">
+              <div class="fill" style="width:${stat.base_stat}%"></div>
+            </div>
+          </div>
+        `).join("")}
+    </div>
+  `;
 }
 
 function createAbilitiesTab(pokemon) {
