@@ -91,3 +91,8 @@
 
 [x] Den **Load More Button** während einer aktiven Suche ausblenden.
 [x] Den Button wieder anzeigen, sobald das Suchfeld geleert wird.
+
+6. Fix Escape-Taste
+[x] Beim Drücken der Escape-Taste wird der Dialog über closeDialogOnEscape() geschlossen.
+
+

@@ -367,8 +367,8 @@ body {
 .pokemon-image {
   width: 110px;
   height: 110px;
-  image-rendering: crisp-edges;
-  filter: drop-shadow(0 6px 6px rgba(0, 0, 0, 0.3));
+  object-fit: contain;
+  margin: 10px 0;
 }
 .pkm-dialog-content {
   position: relative;
@@ -420,9 +420,10 @@ body {
   flex: 1;
 }
 
-
-.pkm-dialog-content img {
-  width: 150px;
+pkm-dialog-content img {
+    width: 110px;
+  height: 110px;
+  object-fit: contain;
   margin: 10px 0;
 }
 .tabs {
